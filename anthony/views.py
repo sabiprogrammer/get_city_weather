@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import requests
+import os
 
 from .models import City
 from .forms import CityForm
@@ -8,7 +9,7 @@ from .forms import CityForm
 # Create your views here.
 
 def index(request):
-   url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=078d2caaa94f4fe156d5f41f300e9f93'
+   url = os.environ.get('WEATHERAPI')
    error_message = ''
    message = ''
    message_class = ''
